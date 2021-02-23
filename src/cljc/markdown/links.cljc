@@ -13,7 +13,7 @@
 (defn href [text link state]
   (let [[link title] (split-with (partial not= \space) link)]
     (freeze-string
-     (seq "<a href='") link (seq "'")
+     (seq "<a class='external-link link dim purple' href='") link (seq "'")
      (if (not-empty title)
        (seq (apply str " title=" (string/join (rest title)) ">"))
        (seq ">"))
