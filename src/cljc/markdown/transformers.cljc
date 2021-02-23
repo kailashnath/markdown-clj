@@ -277,7 +277,7 @@
   [text {:keys [blockquote-start blockquote-end blockquote-paragraph lists] :as state}]
   (let [not-in-list (or (not lists) (empty? lists))]
     (cond blockquote-start
-          [(str "<blockquote><p>" text)
+          [(str "<blockquote class=\"athelas ml0 mt0 pl4 black-90 bl bw2 b--blue \"><p class=\"f5 f4-m f3-l lh-copy measure mt0\">" text)
            (dissoc state :blockquote-start)]
 
           (and blockquote-end not-in-list)
@@ -388,6 +388,7 @@
 
 (def transformer-vector
   [set-line-state
+   dashes
    empty-line
    inhibit
    escape-inhibit-separator
@@ -419,5 +420,4 @@
    paragraph
    br
    thaw-strings
-   dashes
    clear-line-state])
